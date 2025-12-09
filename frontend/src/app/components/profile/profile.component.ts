@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { HttpClient } from '@angular/common/http';
 import { OrderService } from '../../services/order.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-profile',
@@ -24,8 +24,8 @@ export class ProfileComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private http: HttpClient,
-        private orderService: OrderService
+        private orderService: OrderService,
+        private userService: UserService
     ) { }
 
     ngOnInit() {
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
     refreshProfile() {
         if (this.user) {
             // Fetch latest data
-            this.http.get(`http://localhost:8080/api/user/profile?username=${this.user.username}`).subscribe({
+            this.userService.getProfile(this.user.username).subscribe({
                 next: (data: any) => {
                     this.user = data;
                     // Update auth service state if needed, or just local
@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
     }
 
     saveProfile() {
-        this.http.put(`http://localhost:8080/api/user/profile?username=${this.user.username}`, this.editUser).subscribe({
+        this.userService.updateProfile(this.user.username, this.editUser).subscribe({
             next: (res: any) => {
                 this.user = res;
                 this.isEditing = false;
@@ -88,11 +88,7 @@ export class ProfileComponent implements OnInit {
     uploadPicture() {
         if (!this.selectedFile) return;
 
-        const formData = new FormData();
-        formData.append('file', this.selectedFile);
-        formData.append('username', this.user.username);
-
-        this.http.post('http://localhost:8080/api/user/profile/picture', formData).subscribe({
+        this.userService.uploadProfilePicture(this.user.username, this.selectedFile).subscribe({
             next: (res: any) => {
                 this.user = res;
                 this.message = 'Profile picture updated!';

@@ -6,8 +6,13 @@ import { Router } from '@angular/router';
 @Injectable({
     providedIn: 'root'
 })
+    import { environment } from '../../environments/environment';
+
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthService {
-    private apiUrl = 'http://localhost:8080/api/auth';
+    private apiUrl = `${environment.apiUrl}/auth`;
 
     // Signal to track if user is logged in
     public currentUser = signal<any>(this.getUserFromStorage());
