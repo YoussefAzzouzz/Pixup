@@ -1,0 +1,39 @@
+.navbar {
+    background-color: rgba(30, 41, 59, 0.8);
+    /* Surface color with opacity */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.05em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a:not(.btn) {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.nav-links a:not(.btn):hover,
+.nav-links a.active {
+    color: var(--text-color);
+}

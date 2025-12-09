@@ -1,0 +1,14 @@
+<div class="card" *ngIf="game">
+    <div class="card-image">
+        <img [src]="game.imageUrl" [alt]="game.title">
+        <span class="badge">{{ game.platform }}</span>
+    </div>
+    <div class="card-content">
+        <h3 class="card-title">{{ game.title }}</h3>
+        <p class="card-genre">{{ game.genre }}</p>
+        <div class="card-footer">
+            <span class="price">\${{ game.price }}</span>
+            <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+</div>

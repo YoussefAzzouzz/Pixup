@@ -1,0 +1,136 @@
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    color: #fff;
+}
+
+.profile-card {
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.avatar-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #646cff;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.email {
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.bio {
+    font-style: italic;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.placeholder {
+    color: #666;
+}
+
+textarea {
+    width: 100%;
+    background: #2d2d2d;
+    color: white;
+    border: 1px solid #3d3d3d;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.upload-section {
+    margin-top: 1rem;
+}
+
+.upload-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.alert {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #2ecc71;
+    color: #000;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.orders-section {
+    margin-top: 3rem;
+}
+
+.order-card {
+    background: #2d2d2d;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.status {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.order-total {
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.no-orders {
+    margin-top: 3rem;
+    text-align: center;
+    color: #777;
+}

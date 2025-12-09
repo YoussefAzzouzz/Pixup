@@ -1,0 +1,28 @@
+<div class="container fade-in">
+    <h2>Register</h2>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" [(ngModel)]="user.email" required email>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" required minlength="6">
+        </div>
+
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+        </div>
+
+        <button type="submit" [disabled]="!registerForm.form.valid" class="btn-primary">Register</button>
+    </form>
+    <p class="mt-4">
+        Already have an account? <a href="/login">Login here</a>
+    </p>
+</div>
